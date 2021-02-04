@@ -1,0 +1,40 @@
+
+noremap <Tab> gt<CR>
+noremap <S-Tab> gT<CR>
+
+
+"********************************************************************************
+
+"********************************************************************************
+"検索単語がヒットした場合は、見やすくするために画面中央に表示する
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+
+"段落移動後は画面真ん中に表示する
+nnoremap  { {zz
+nnoremap  } }zz
+nnoremap  [[ [[zz
+nnoremap  ]] ]]zz
+
+
+
+"行の初めと終了
+noremap <S-h>   ^
+noremap <S-l>   $
+
+"画面のスクロール
+nnoremap <silent>,h H
+nnoremap <silent>,l L
+nnoremap <silent>,m M
+
+"行の真ん中にカーソル移動
+noremap <silent><S-m> :call cursor(0,strlen(getline("."))/2)<CR>
+
+"スクロール関連ショットカットキー
+noremap <S-f> <C-e>
+noremap <S-b> <C-y>
+
+noremap <C-j> <C-d> "ページ半分のスクロール
+noremap <C-k> <C-u>

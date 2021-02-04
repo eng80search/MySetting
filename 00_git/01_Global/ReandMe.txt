@@ -1,0 +1,2 @@
+ユーザーフォルダーの直下に入れとく
+C:\Users\user1\.gitconfig

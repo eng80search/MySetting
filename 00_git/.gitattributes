@@ -1,0 +1,4 @@
+# リポジトリ内のsjisファイルを指定
+*.txt diff=cp932
+*.ps1 diff=cp932
+*.csv diff=cp932

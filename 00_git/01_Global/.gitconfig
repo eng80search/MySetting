@@ -1,0 +1,51 @@
+[core]
+    # 日本語ファイル名対応
+	autocrlf = false #コミット時：CRLF->LF チェックアウト時 LF->CRLF 変換しない（false）
+	safecrlf = true #ファイル内に複数の改行コードが混じっている場合に自動変換をしない
+	whitespace = cr-at-eol #git diff時の^Mを抑制
+	quotepath = false
+    #ページャの文字化け対応
+    pager=LC_ALL=ja_JP.UTF-8 less -Sx4
+	# editor = gvim
+	editor = gvim -f -c \"set fileencoding=utf-8\"
+	#editor = 'C:/Users/setupuser/Documents/00_Ri/01_Tool/vim81_20190709/vim.exe'
+
+[user]
+	email = eng80search@gmail.com
+	name = eng80search
+[credential]
+    # pushする際にパスワードは一回のみ入力するように設定
+	helper = wincred
+
+# git diff, git show 時に文字コード変換
+[diff "cp932"]
+    textconv=iconv -f cp932 -t utf-8
+[diff "sjis"]
+    textconv=iconv -f sjis -t utf-8
+
+[alias]
+
+#別名を定義する
+    ; logg = log --date=format:'%Y%m/%d  %H:%M:%S'
+    logg  = log --graph --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
+	diffv = difftool
+	mergev = mergetool
+    tagg  = tag  --sort=-taggerdate --format='%(taggerdate:short) [%(tag)]   %(subject)'
+[http]
+	proxy = http://w50743:passwordq1@proxy1.scskinfo.jp:8089
+	; proxy = https://w50743:passwordq1@10.22.145.25:443
+[https]
+	proxy = http://w50743:passwordq1@proxy1.scskinfo.jp:8089
+
+#difftoolは既存のgvimのdiffを使用する
+[diff]
+	tool = gvimdiff
+[difftool]
+	prompt = false
+
+#mergeはgvimのdiffを使用する
+[merge]
+	tool = gvimdiff
+    conflictstyle = diff3
+[mergetool]
+    prompt = false

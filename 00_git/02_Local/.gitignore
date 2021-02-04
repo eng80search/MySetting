@@ -1,0 +1,16 @@
+# Java用の不要ファイルリスト
+# Java
+*.class
+# *.jar
+# *.war
+# *.ear
+
+# Eclipse
+# .project
+# .classpath
+# .settings
+
+# 特定のフォルダ
+ExecutableJar/
+bin/
+backUp/
