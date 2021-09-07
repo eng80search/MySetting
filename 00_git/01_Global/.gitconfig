@@ -9,6 +9,8 @@
 	# editor = gvim
 	editor = gvim -f -c \"set fileencoding=utf-8\"
 	#editor = 'C:/Users/setupuser/Documents/00_Ri/01_Tool/vim81_20190709/vim.exe'
+    #diff時に長い行は折返しで表示
+    pager = less -r
 
 [user]
 	email = eng80search@gmail.com
