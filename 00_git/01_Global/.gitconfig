@@ -28,16 +28,20 @@
 [alias]
 
 #別名を定義する
-    ; logg = log --date=format:'%Y%m/%d  %H:%M:%S'
-    logg  = log --graph --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
+    ; logg = log --date=format:'%Y/%m/%d  %H:%M:%S'
+    ; logg  = log --graph --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
+    logg  = log --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
+    logd  = log --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
+    showd  = show --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
+    diffd = diff
 	diffv = difftool
 	mergev = mergetool
     tagg  = tag  --sort=-taggerdate --format='%(taggerdate:short) [%(tag)]   %(subject)'
 [http]
-	proxy = http://w50743:passwordq1@proxy1.scskinfo.jp:8089
+	; proxy = http://w50743:passwordq1@proxy1.scskinfo.jp:8089
 	; proxy = https://w50743:passwordq1@10.22.145.25:443
 [https]
-	proxy = http://w50743:passwordq1@proxy1.scskinfo.jp:8089
+	; proxy = http://w50743:passwordq1@proxy1.scskinfo.jp:8089
 
 #difftoolは既存のgvimのdiffを使用する
 [diff]
@@ -51,3 +55,35 @@
     conflictstyle = diff3
 [mergetool]
     prompt = false
+[blame]
+	coloring = highlightRecent
+
+[pager]
+    diffd = delta
+    logd = delta
+    showd = delta
+    reflog = delta
+
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+
+[delta]
+    features = decorations
+    syntax-theme = DarkNeon
+    ; syntax-theme = GitHub
+    line-numbers = true
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue
+    commit-style = raw
+    file-style = omit
+    decoration-style = blue box
+
+    hunk-header-decoration-style = cyan box ul
+    hunk-header-file-style = yellow
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
