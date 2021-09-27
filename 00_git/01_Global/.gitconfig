@@ -72,6 +72,8 @@
     syntax-theme = DarkNeon
     ; syntax-theme = GitHub
     line-numbers = true
+    ; 長い文字列の比較でも切り捨てはしない
+    max-line-length = 0
 
 [delta "interactive"]
     keep-plus-minus-markers = false
