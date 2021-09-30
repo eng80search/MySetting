@@ -29,8 +29,8 @@
 
 #別名を定義する
     ; logg = log --date=format:'%Y/%m/%d  %H:%M:%S'
-    ; logg  = log --graph --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
-    logg  = log --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
+    ; logg  = log --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
+    logg  = log --graph --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
     logd  = log --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
     showd  = show --oneline --pretty=format:'%C(yellow)%h %C(green)[%cd] %C(red)%d %C(white)%s ' --date=format:'%Y/%m/%d %H:%M:%S'
     diffd = diff
