@@ -38,6 +38,39 @@ Git の設定ファイルには、
 
 1. git bashターミナルでsshキーを作成する
 ![sshキー作成](./11_image/sshキー作成.png)
-2. 生成されたsshキーのうち、publicキーをGithubに登録する
-1. gitのremote接続をssh接続に設定する
+1. (Proxyありの場合) ~/.ssh/configファイルを作成し、以下のように設定する
+        Host github.com
+          IdentityFile ~/.ssh/id_ed25519_github
+          User eng80search
+          ProxyCommand env CONNECT_USER=W50743 CONNECT_PASSWORD=passwordq1 connect -H proxy1.scskinfo.jp:8089 %h %p
+![sshプロキシ設定](./11_image/sshプロキシ設定.png)
+1. 生成されたsshキーのうち、publicキーをGithubに登録する
+![githubにssh共有鍵登録](./11_image/githubにssh共有鍵登録.png)
+1. gitのremote接続をssh接続に設定する(新規の場合はgit remote add origin )
 ![ssh方式でremote接続](./11_image/ssh接続.png)
+
+
+## Git Bashプロンプトにstatusを表示する設定
+[参考リンク](https://tm.root-n.com/unix:command:git:bash_prompt)
+
+1. まず「git-completion.bash」と「git-prompt.sh」ダウンロード
+
+        $wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+        $wget https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+
+1. bashrc に下記を追記
+
+        export LANG=ja_JP.UTF-8
+
+        GIT_PS1_SHOWDIRTYSTATE=true
+        GIT_PS1_SHOWUNTRACKEDFILES=true
+        GIT_PS1_SHOWSTASHSTATE=true
+        GIT_PS1_SHOWUPSTREAM=auto
+            
+
+1. sourceコマンドで設定を反映
+
+        source ~/.bashrc
+
+1. ファイル構成
+![ファイル構成](./11_image/displayStatusInGitBash/displayStatusInGitBash.png)
