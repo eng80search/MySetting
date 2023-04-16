@@ -1,40 +1,53 @@
+" 検索設定
+nnoremap / /\v
+set incsearch
 
-noremap <Tab> gt<CR>
-noremap <S-Tab> gT<CR>
+" beep音と画面の点滅をさせない
+set visualbell t_vb=
 
-
-"********************************************************************************
-
-"********************************************************************************
-"検索単語がヒットした場合は、見やすくするために画面中央に表示する
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-
-"段落移動後は画面真ん中に表示する
-nnoremap  { {zz
-nnoremap  } }zz
-nnoremap  [[ [[zz
-nnoremap  ]] ]]zz
+" 検索したら次の検索ところにジャンプしない
+nmap * *N
 
 
+set nowrap
+set hlsearch
+set ignorecase
+set cursorline
 
-"行の初めと終了
-noremap <S-h>   ^
-noremap <S-l>   $
+noremap <S-h> ^
+noremap <S-l> $
 
-"画面のスクロール
+noremap <S-f> <C-e>
+noremap <S-b> <C-y>
+
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
+
+noremap <silent><S-m> :call cursor(0,strlen(getline("."))/2)<CR>
+
+" 画面のスクロール
 nnoremap <silent>,h H
 nnoremap <silent>,l L
 nnoremap <silent>,m M
 
-"行の真ん中にカーソル移動
-noremap <silent><S-m> :call cursor(0,strlen(getline("."))/2)<CR>
+" インデントをTabではなくスペース4つで揃える
+set tabstop=4
+set autoindent
+set expandtab
+set shiftwidth=4
 
-"スクロール関連ショットカットキー
-noremap <S-f> <C-e>
-noremap <S-b> <C-y>
+" insertモードを抜ける
+inoremap <C-o> <C-[>
 
-noremap <C-j> <C-d> "ページ半分のスクロール
-noremap <C-k> <C-u>
+" insertモードでhjklで移動
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
+inoremap <C-b> <BS>
+
+" ウィンドウサイズ調整
+noremap <C-Up> <C-w>-
+noremap <C-Down> <C-w>+
+noremap <C-Left> <C-w><
+noremap <C-Right> <C-w>>
